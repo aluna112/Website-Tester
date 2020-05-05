@@ -2,188 +2,273 @@
 <html>
     <head>
         <style>
-            #container{
+            #container {
                 width: 1000px;
-                height: 550px;
+                height: 600px;
                 margin: 20px auto;
             }
             #calculator {
-                width: 320px;
-                height: 520px;
-                background-color: #000000;
+                width: 350px;
+                height: 600px;
+                background-color: black;
                 margin: 0 auto;
-                top: 20px;
                 position: relative;
-                border-radius: 50px;
+                border-radius: 35px;
             }
             #result {
-                height: 120px;
+                height: 100px;
             }
-            #history{
+            #output {
                 text-align: right;
-                height: 20px;
-                margin: 0 20px;
-                padding-top: 20px;
-                font-size: 15px;
-                color: #919191;
-            }
-            #output{
-                text-align: right;
-                height: 60px;
-                margin: 10px 20px;
-                font-size: 30px;
+                height: 80px;
+                margin: 0px 25px;
+                padding-top: 70px;
+                font-size: 70px;
                 color: #FFFFFF;
             }
-            #keyboard{
-                height: 400px;
-            }
-            .clears, .operator, .number, .nothing {
-                width: 50px;
-                height: 50px;
-                margin: 15px;
+            .clears, .operator, .number {
+                width: 70px;
+                height: 70px;
+                margin: 8px;
                 float: left;
                 border-radius: 50%;
                 border-width: 0;
-                font-size: 30px;}
-            .number{
-                background-color: #595959;
+                font-size: 35px;
+                color: white;
             }
-            .nothing {
-                background-color: #000000;
+            .number {
+                background-color: #494848;
             }
             .operator {
                 background-color: #FC8A17;
             }
-            .number, .operator{
+            .clears {
+                background-color: #A7AFB2;
+                color: black;
+            }
+            .number, .operator {
                 cursor: pointer;
             }
-            .operator:active, .number:active{
-                font-size: 25px;
+            .operator:active {
+                background-color: white;
+                color: #FC8A17
             }
-            .operator:focus, .number:focus, .clears:focus{
-                outline: 0;
+            .number:active {
+                background-color: #B4B4B4;
+            }
+            .clears:active {
+                background-color: #D4D4D4;
+            }
+            button:nth-child(17) {
+                width: 155px;
+                border-radius: 50px;
+                padding-right: 90px;
             }
         </style>
         <title>Calculator</title>
     </head>
     <body style = "Background-color: tan">
+        <div id = "hello"></div>
         <h1 style = "color: black; font-size: 50px; text-align: center">CALCULATOR</h1>
-        <p>This is a basic calculator.</p>
+        <p style = "text-align:center">iPhone Calculator</p>
         <hr />
-<!--        <img src="TEST-FILTER.png"/>
-        <a href = "http://google.com"><button style = "color:green;border-radius:10px;">Google</button></a> -->
         <div id = "containter">
             <div id = "calculator">
                 <div id "result">
-                    <div id "history">
-                        <p id = "history-value"></p>
-                    </div>
                     <div id = "output">
                         <p id = "output-value"></p>
                     </div>
                 </div>
                 <div id = "keyboard">
-                    <button class = "clears" id = "clear">AC</button>
-                    <button class = "clears" id = "backspace">&larr;</button>
-                    <button class = "nothing" id = "nothing"></button>
-                    <button class = "operator" id = "/">&#247;</button>
-                    <button class = "number" id = "7">7</button>
-                    <button class = "number" id = "8">8</button>
-                    <button class = "number" id = "9">9</button>
-                    <button class = "operator" id = "*">&times;</button>
-                    <button class = "number" id = "4">4</button>
-                    <button class = "number" id = "5">5</button>
-                    <button class = "number" id = "6">6</button>
-                    <button class = "operator" id = "-">-</button>
-                    <button class = "number" id = "1">1</button>
-                    <button class = "number" id = "2">2</button>
-                    <button class = "number" id = "3">3</button>
-                    <button class = "operator" id = "+">+</button>
-                    <button class = "nothing" id = "nothing"></button>
-                    <button class = "number" id = "0">0</button>
-                    <button class = "number" id = ".">.</button>
-                    <button class = "operator" id = "=">=</button>
+                    <button onclick = "clears()" class = "clears" >AC</button>
+                    <button onclick = "plusOrMinus()" class = "clears" >+/-</button>
+                    <button onclick = "percent()" class = "clears" >%</button>
+                    <button onclick = "divide()" class = "operator">&#247;</button>
+                    <button onclick = "seven()" class = "number">7</button>
+                    <button onclick = "eight()" class = "number">8</button>
+                    <button onclick = "nine()" class = "number">9</button>
+                    <button class = "operator">&times;</button>
+                    <button onclick = "four()" class = "number">4</button>
+                    <button onclick = "five()" class = "number">5</button>
+                    <button onclick = "six()" class = "number">6</button>
+                    <button style = "padding-bottom:30px" class = "operator">_</button>
+                    <button onclick = "one()" class = "number">1</button>
+                    <button onclick = "two()" class = "number">2</button>
+                    <button onclick = "three()" class = "number">3</button>
+                    <button class = "operator">+</button>
+                    <button onclick = "zero()" class = "number">0</button>
+                    <button class = "number">.</button>
+                    <button onclick = "equals()" class = "operator">=</button>
                 </div>
             </div>
         </div>
         <script>
-        function getHistory(){
-            return document.getElementById("history-value").innerText;
-        }
-        function printHistory(num){
-            document.getElementById("history-value").innerText=num;
-        }
-        function getOutput(){
-            return document.getElementById("output-value").innerText;
-        }
-        function printOutput(num){
-            if(num==""){
-                document.getElementById("output-value").innerText=num;
+            var starter = "0";
+            document.getElementById("output").innerHTML = starter;
+            function clears() {
+                if (document.getElementById("output").innerHTML != "0") {
+                    document.getElementById("output").innerHTML = "0";
+                }
+                else {
+                    ;
+                }
             }
-            else{
-                document.getElementById("output-value").innerText=getFormattedNumber(num);
+            function plusOrMinus() {
+                if (document.getElementById("output").innerHTML != "0") {
+                    var number = document.getElementById("output").innerHTML;
+                    newnumber = number * -1;
+                    document.getElementById("output").innerHTML = newnumber;
+                }
+                else if (document.getElementById("output").innerHTML == "0") {
+                    document.getElementById("output").innerHTML = "-0";
+                }
             }
-        }
-        function getFormattedNumber(num){
-            if(num=="-"){
-                return "";
+            function percent() {
+                var newnumber = document.getElementById("output").innerHTML;
+                pnumber = newnumber / 100;
+                document.getElementById("output").innerHTML = pnumber;
             }
-            var n = Number(num);
-            var value = n.toLocaleString("en");
-            return value;
-        }
-        function reverseNumberFormat(num){
-            return Number(num.replace(/,/g,''));
-        }
-        var operator = document.getElementsByClassName("operator");
-        for(var i =0;i<operator.length;i++){
-            operator[i].addEventListener('click',function(){
-                if(this.id=="clear"){
-                    printHistory("");
-                    printOutput("");
+            function divide() {
+                var ndivide = document.getElementById("output").innerHTML;
+                document.getElementById("output").innerHTML = "0";
+                equals(ndivide);
+                console.log(ndivide);
+            }
+            function seven() {
+                if (document.getElementById("output").innerHTML == "0") {
+                    document.getElementById("output").innerHTML = "";
+                    var seven = document.getElementById("output").innerHTML;
+                    var number7 = seven + "7";
+                    document.getElementById("output").innerHTML = number7;
                 }
-                else if(this.id=="backspace"){
-                    var output=reverseNumberFormat(getOutput()).toString();
-                    if(output){//if output has a value
-                        output= output.substr(0,output.length-1);
-                        printOutput(output);
-                    }
+                else {
+                    var seven = document.getElementById("output").innerHTML;
+                    var number7 = seven + "7";
+                    document.getElementById("output").innerHTML = number7;
                 }
-                else{
-                    var output=getOutput();
-                    var history=getHistory();
-                    if(output==""&&history!=""){
-                        if(isNaN(history[history.length-1])){
-                            history= history.substr(0,history.length-1);
-                        }
-                    }
-                    if(output!="" || history!=""){
-                        output= output==""?output:reverseNumberFormat(output);
-                        history=history+output;
-                        if(this.id=="="){
-                            var result=eval(history);
-                            printOutput(result);
-                            printHistory("");
-                        }
-                        else{
-                            history=history+this.id;
-                            printHistory(history);
-                            printOutput("");
-                        }
-                    }
+            }
+            function eight() {
+                if (document.getElementById("output").innerHTML == "0") {
+                    document.getElementById("output").innerHTML = "";
+                    var eight = document.getElementById("output").innerHTML;
+                    var number8 = eight + "8";
+                    document.getElementById("output").innerHTML = number8;
                 }
-                
-            });
-        }
-        var number = document.getElementsByClassName("number");
-        for(var i =0;i<number.length;i++){
-            number[i].addEventListener('click',function(){
-                var output=reverseNumberFormat(getOutput());
-                if(output!=NaN){ //if output is a number
-                    output=output+this.id;
-                    printOutput(output);
+                else {
+                    var eight = document.getElementById("output").innerHTML;
+                    var number8 = eight + "8";
+                    document.getElementById("output").innerHTML = number8;
                 }
-            });
-        }        </script>
+            }
+            function nine() {
+                if (document.getElementById("output").innerHTML == "0") {
+                    document.getElementById("output").innerHTML = "";
+                    var nine = document.getElementById("output").innerHTML;
+                    var number9 = nine + "9";
+                    document.getElementById("output").innerHTML = number9;
+                }
+                else {
+                    var nine = document.getElementById("output").innerHTML;
+                    var number9 = nine + "9";
+                    document.getElementById("output").innerHTML = number9;
+                }
+            }
+            function four() {
+                if (document.getElementById("output").innerHTML == "0") {
+                    document.getElementById("output").innerHTML = "";
+                    var four = document.getElementById("output").innerHTML;
+                    var number4 = four + "4";
+                    document.getElementById("output").innerHTML = number4;
+                }
+                else {
+                    var four = document.getElementById("output").innerHTML;
+                    var number4 = four + "4";
+                    document.getElementById("output").innerHTML = number4;
+                }
+            }
+            function five() {
+                if (document.getElementById("output").innerHTML == "0") {
+                    document.getElementById("output").innerHTML = "";
+                    var five = document.getElementById("output").innerHTML;
+                    var number5 = five + "5";
+                    document.getElementById("output").innerHTML = number5;
+                }
+                else {
+                    var five = document.getElementById("output").innerHTML;
+                    var number5 = five + "5";
+                    document.getElementById("output").innerHTML = number5;
+                }
+            }
+            function six() {
+                if (document.getElementById("output").innerHTML == "0") {
+                    document.getElementById("output").innerHTML = "";
+                    var six = document.getElementById("output").innerHTML;
+                    var number6 = six + "6";
+                    document.getElementById("output").innerHTML = number6;
+                }
+                else {
+                    var six = document.getElementById("output").innerHTML;
+                    var number6 = six + "6";
+                    document.getElementById("output").innerHTML = number6;
+                }
+            }
+            function one() {
+                if (document.getElementById("output").innerHTML == "0") {
+                    document.getElementById("output").innerHTML = "";
+                    var one = document.getElementById("output").innerHTML;
+                    var number1 = one + "1";
+                    document.getElementById("output").innerHTML = number1;
+                }
+                else {
+                    var one = document.getElementById("output").innerHTML;
+                    var number1 = one + "1";
+                    document.getElementById("output").innerHTML = number1;
+                }
+            }
+            function two() {
+                if (document.getElementById("output").innerHTML == "0") {
+                    document.getElementById("output").innerHTML = "";
+                    var two = document.getElementById("output").innerHTML;
+                    var number2 = two + "2";
+                    document.getElementById("output").innerHTML = number2;
+                }
+                else {
+                    var two = document.getElementById("output").innerHTML;
+                    var number2 = two + "2";
+                    document.getElementById("output").innerHTML = number2;
+                }
+            }
+            function three() {
+                if (document.getElementById("output").innerHTML == "0") {
+                    document.getElementById("output").innerHTML = "";
+                    var three = document.getElementById("output").innerHTML;
+                    var number3 = three + "3";
+                    document.getElementById("output").innerHTML = number3;
+                }
+                else {
+                    var three = document.getElementById("output").innerHTML;
+                    var number3 = three + "3";
+                    document.getElementById("output").innerHTML = number3;
+                }
+            }
+            function zero() {
+                if (document.getElementById("output").innerHTML != "0") {
+                    var zero = document.getElementById("output").innerHTML;
+                    var number0 = zero + "0";
+                    document.getElementById("output").innerHTML = number0;
+                }
+                else {
+                    ;
+                }
+            }
+            function equals(ndivide) {
+                dnum = document.getElementById("output").innerHTML;
+                danswer = ndivide / dnum;
+                document.getElementById("output").innerHTML = danswer;
+                console.log(dnum);
+                console.log(ndivide);
+                console.log(danswer);
+            }
+        </script>
     </body>
 </html>
