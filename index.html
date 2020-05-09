@@ -9,20 +9,20 @@
             }
             #calculator {
                 width: 350px;
-                height: 600px;
+                height: 690px;
                 background-color: black;
                 margin: 0 auto;
                 position: relative;
                 border-radius: 35px;
             }
             #result {
-                height: 100px;
+                height: 50px;
             }
             #output {
                 text-align: right;
                 height: 80px;
                 margin: 0px 25px;
-                padding-top: 70px;
+                padding-top: 150px;
                 font-size: 70px;
                 color: #FFFFFF;
             }
@@ -45,9 +45,7 @@
             .clears {
                 background-color: #A7AFB2;
                 color: black;
-            }
-            .number, .operator {
-                cursor: pointer;
+                font-size: 27px;
             }
             .operator:active {
                 background-color: white;
@@ -63,6 +61,24 @@
                 width: 155px;
                 border-radius: 50px;
                 padding-right: 90px;
+            }
+            .goHome {
+                height:5px;
+                width:140px;
+                background-color: white;
+                border-radius: 20%;
+                margin: 0 auto;
+                display: block;
+            }
+            .blank {
+                height:20px;
+                width:140px;
+                background-color: black;
+                border-color: black;
+                border-width: 0;
+                border-radius: 20%;
+                margin: 0 auto;
+                display: block;
             }
         </style>
         <title>Calculator</title>
@@ -97,9 +113,11 @@
                     <button onclick = "three()" class = "number">3</button>
                     <button class = "operator">+</button>
                     <button onclick = "zero()" class = "number">0</button>
-                    <button class = "number">.</button>
+                    <button onclick = "dot()" class = "number">.</button>
                     <button onclick = "equals()" class = "operator">=</button>
                 </div>
+                <button class = "blank"></button>
+                <button class = "goHome"></button>
             </div>
         </div>
         <script>
@@ -135,130 +153,171 @@
                 console.log(ndivide);
             }
             function seven() {
-                if (document.getElementById("output").innerHTML == "0") {
-                    document.getElementById("output").innerHTML = "";
-                    var seven = document.getElementById("output").innerHTML;
-                    var number7 = seven + "7";
-                    document.getElementById("output").innerHTML = number7;
-                }
-                else {
-                    var seven = document.getElementById("output").innerHTML;
-                    var number7 = seven + "7";
-                    document.getElementById("output").innerHTML = number7;
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var seven = document.getElementById("output").innerHTML;
+                        var number7 = seven + "7";
+                        document.getElementById("output").innerHTML = number7;
+                    }
+                    else {
+                        var seven = document.getElementById("output").innerHTML;
+                        var number7 = seven + "7";
+                        document.getElementById("output").innerHTML = number7;
+                    }
                 }
             }
             function eight() {
-                if (document.getElementById("output").innerHTML == "0") {
-                    document.getElementById("output").innerHTML = "";
-                    var eight = document.getElementById("output").innerHTML;
-                    var number8 = eight + "8";
-                    document.getElementById("output").innerHTML = number8;
-                }
-                else {
-                    var eight = document.getElementById("output").innerHTML;
-                    var number8 = eight + "8";
-                    document.getElementById("output").innerHTML = number8;
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var eight = document.getElementById("output").innerHTML;
+                        var number8 = eight + "8";
+                        document.getElementById("output").innerHTML = number8;
+                    }
+                    else {
+                        var eight = document.getElementById("output").innerHTML;
+                        var number8 = eight + "8";
+                        document.getElementById("output").innerHTML = number8;
+                    }
                 }
             }
             function nine() {
-                if (document.getElementById("output").innerHTML == "0") {
-                    document.getElementById("output").innerHTML = "";
-                    var nine = document.getElementById("output").innerHTML;
-                    var number9 = nine + "9";
-                    document.getElementById("output").innerHTML = number9;
-                }
-                else {
-                    var nine = document.getElementById("output").innerHTML;
-                    var number9 = nine + "9";
-                    document.getElementById("output").innerHTML = number9;
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var nine = document.getElementById("output").innerHTML;
+                        var number9 = nine + "9";
+                        document.getElementById("output").innerHTML = number9;
+                    }
+                    else {
+                        var nine = document.getElementById("output").innerHTML;
+                        var number9 = nine + "9";
+                        document.getElementById("output").innerHTML = number9;
+                    }
                 }
             }
             function four() {
-                if (document.getElementById("output").innerHTML == "0") {
-                    document.getElementById("output").innerHTML = "";
-                    var four = document.getElementById("output").innerHTML;
-                    var number4 = four + "4";
-                    document.getElementById("output").innerHTML = number4;
-                }
-                else {
-                    var four = document.getElementById("output").innerHTML;
-                    var number4 = four + "4";
-                    document.getElementById("output").innerHTML = number4;
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var four = document.getElementById("output").innerHTML;
+                        var number4 = four + "4";
+                        document.getElementById("output").innerHTML = number4;
+                    }
+                    else {
+                        var four = document.getElementById("output").innerHTML;
+                        var number4 = four + "4";
+                        document.getElementById("output").innerHTML = number4;
+                    }
                 }
             }
             function five() {
-                if (document.getElementById("output").innerHTML == "0") {
-                    document.getElementById("output").innerHTML = "";
-                    var five = document.getElementById("output").innerHTML;
-                    var number5 = five + "5";
-                    document.getElementById("output").innerHTML = number5;
-                }
-                else {
-                    var five = document.getElementById("output").innerHTML;
-                    var number5 = five + "5";
-                    document.getElementById("output").innerHTML = number5;
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var five = document.getElementById("output").innerHTML;
+                        var number5 = five + "5";
+                        document.getElementById("output").innerHTML = number5;
+                    }
+                    else {
+                        var five = document.getElementById("output").innerHTML;
+                        var number5 = five + "5";
+                        document.getElementById("output").innerHTML = number5;
+                    }
                 }
             }
             function six() {
-                if (document.getElementById("output").innerHTML == "0") {
-                    document.getElementById("output").innerHTML = "";
-                    var six = document.getElementById("output").innerHTML;
-                    var number6 = six + "6";
-                    document.getElementById("output").innerHTML = number6;
-                }
-                else {
-                    var six = document.getElementById("output").innerHTML;
-                    var number6 = six + "6";
-                    document.getElementById("output").innerHTML = number6;
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var six = document.getElementById("output").innerHTML;
+                        var number6 = six + "6";
+                        document.getElementById("output").innerHTML = number6;
+                    }
+                    else {
+                        var six = document.getElementById("output").innerHTML;
+                        var number6 = six + "6";
+                        document.getElementById("output").innerHTML = number6;
+                    }
                 }
             }
             function one() {
-                if (document.getElementById("output").innerHTML == "0") {
-                    document.getElementById("output").innerHTML = "";
-                    var one = document.getElementById("output").innerHTML;
-                    var number1 = one + "1";
-                    document.getElementById("output").innerHTML = number1;
-                }
-                else {
-                    var one = document.getElementById("output").innerHTML;
-                    var number1 = one + "1";
-                    document.getElementById("output").innerHTML = number1;
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var one = document.getElementById("output").innerHTML;
+                        var number1 = one + "1";
+                        document.getElementById("output").innerHTML = number1;
+                    }
+                    else {
+                        var one = document.getElementById("output").innerHTML;
+                        var number1 = one + "1";
+                        document.getElementById("output").innerHTML = number1;
+                    }
                 }
             }
             function two() {
-                if (document.getElementById("output").innerHTML == "0") {
-                    document.getElementById("output").innerHTML = "";
-                    var two = document.getElementById("output").innerHTML;
-                    var number2 = two + "2";
-                    document.getElementById("output").innerHTML = number2;
-                }
-                else {
-                    var two = document.getElementById("output").innerHTML;
-                    var number2 = two + "2";
-                    document.getElementById("output").innerHTML = number2;
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var two = document.getElementById("output").innerHTML;
+                        var number2 = two + "2";
+                        document.getElementById("output").innerHTML = number2;
+                    }
+                    else {
+                        var two = document.getElementById("output").innerHTML;
+                        var number2 = two + "2";
+                        document.getElementById("output").innerHTML = number2;
+                    }
                 }
             }
             function three() {
-                if (document.getElementById("output").innerHTML == "0") {
-                    document.getElementById("output").innerHTML = "";
-                    var three = document.getElementById("output").innerHTML;
-                    var number3 = three + "3";
-                    document.getElementById("output").innerHTML = number3;
-                }
-                else {
-                    var three = document.getElementById("output").innerHTML;
-                    var number3 = three + "3";
-                    document.getElementById("output").innerHTML = number3;
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML == "0") {
+                        document.getElementById("output").innerHTML = "";
+                        var three = document.getElementById("output").innerHTML;
+                        var number3 = three + "3";
+                        document.getElementById("output").innerHTML = number3;
+                    }
+                    else {
+                        var three = document.getElementById("output").innerHTML;
+                        var number3 = three + "3";
+                        document.getElementById("output").innerHTML = number3;
+                    }
                 }
             }
             function zero() {
-                if (document.getElementById("output").innerHTML != "0") {
-                    var zero = document.getElementById("output").innerHTML;
-                    var number0 = zero + "0";
-                    document.getElementById("output").innerHTML = number0;
+                var size1 = document.getElementById("output").innerHTML;
+                if (size1.length < 9) {
+                    if (document.getElementById("output").innerHTML != "0") {
+                        var zero = document.getElementById("output").innerHTML;
+                        var number0 = zero + "0";
+                        document.getElementById("output").innerHTML = number0;
+                    }
+                    else {
+                        ;
+                    }
                 }
-                else {
-                    ;
+            }
+            function dot() {
+                var isValid = document.getElementById("output").innerHTML;
+                for (i = 0; i < 9; i++) {
+                    document.getElementById("output").innerHTML = isValid.charAt(i);
+                }
+                if (i != ".") {
+                    var dot2 = document.getElementById("output").innerHTML;
+                    var newdot = dot2 + ".";
+                    document.getElementById("output").innerHTML = newdot;
                 }
             }
             function equals(ndivide) {
